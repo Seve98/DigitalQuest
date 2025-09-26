@@ -14,7 +14,7 @@ export default function CardGame({game}){
        <p>{game.released}</p>
     <div className="card-actions justify-start">
 
-        <Link to={`/games/${game.slug}/${game.id}`}>Dettagli</Link>
+        <Link className="btn btn-custom" to={`/games/${game.slug}/${game.id}`}>Dettagli</Link>
       
     </div>
   </div>

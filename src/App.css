@@ -24,3 +24,10 @@ html,body{
         font-size: x-large;
 
     }
+    .btn-custom{
+        background-color: var(--ca);
+        color: var(--cs);
+        border: 1px solid var(--cs);
+        font-family: var(--fp);
+        font-size: large;
+    }

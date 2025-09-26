@@ -1,27 +1,12 @@
 import { use } from "react";
 import { useEffect, useState } from "react";
 import CardGame from "../../components/CardGame";
+import Fetch from "../../hook/Fetch";
 export default function HomePage(){
-    const[data,setData]=useState(null);
-    const[error,setError]=useState(null);
+    
 
     const initialUrl='https://api.rawg.io/api/games?key=1c7734cdf2454917a6676784758c8c78&dates=2024-01-01,2024-12-31&page=1';
-    const load=async()=>{
-        try{
-            const response=await fetch(initialUrl);
-            if(!response.ok){
-                throw new Error(response.statusText);
-            }
-            const json=await response.json();
-            setData(json);
-        }catch(error){
-            setError(error.message);
-            setData(null);
-        }
-    }
-    useEffect(()=>{
-        load();
-    },[])
+   const{data,loading,error,updateUrl}=Fetch(initialUrl)
 
 
     return(
