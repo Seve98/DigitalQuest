@@ -1,0 +1,26 @@
+:root{
+    --cp:#001011;
+    --cs:#F1DAC4;
+    --ca:#640D14;
+    --ft: 'Pixelify Sans' , sans-serif;
+    --fp: 'Space Grotesk' , sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--ft);
+    font-weight: bold;
+}
+html,body{
+    background-color: var(--cp);
+    color: var(--cs);
+    font-family: var(--fp);}
+.card{
+    background-color: var(--ca);
+    height: 25rem;
+    }
+    .box-description{
+        
+        border: 1px solid var(--cs);
+        background-color: var(--ca);
+        font-size: x-large;
+
+    }
