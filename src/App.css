@@ -31,3 +31,22 @@ html,body{
         font-family: var(--fp);
         font-size: large;
     }
+    .searchbar{  
+        color: var(--cs);
+     
+        font-family: var(--fp);
+        font-size: large;
+        padding: 0.5rem;
+        border-radius: 5rem;
+    }
+    .searchbar input[type="text"]{
+        background-color: var(--cp);
+        color: var(--cs);
+        border: none;
+        font-family: var(--fp);
+        font-size: large;
+        padding: 0.5rem;
+        border-radius: 5rem;
+        margin-right: 20px;
+    }
+   

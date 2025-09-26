@@ -1,7 +1,7 @@
 import { use } from "react";
 import { useEffect, useState } from "react";
 import CardGame from "../../components/CardGame";
-import Fetch from "../../hook/Fetch";
+import Fetch from "../../hook/useFetch";
 export default function HomePage(){
     
 

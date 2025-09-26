@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import SearchBar from "./SearchBar";
+
 
 export default function Navbar(){
     return(
@@ -40,7 +42,7 @@ export default function Navbar(){
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+      <SearchBar/>
   </div>
 </div>
     )

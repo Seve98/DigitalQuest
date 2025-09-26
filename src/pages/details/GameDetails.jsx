@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import  Fetch  from "../../hook/Fetch";
+import  Fetch  from "../../hook/useFetch";
 export default function GameDetails() {
     const{id}=useParams();
   
