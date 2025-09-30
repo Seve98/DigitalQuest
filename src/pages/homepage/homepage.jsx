@@ -2,6 +2,7 @@ import { use } from "react";
 import { useEffect, useState } from "react";
 import CardGame from "../../components/CardGame";
 import Fetch from "../../hook/useFetch";
+import Header from "../../components/Header";
 export default function HomePage(){
     
 
@@ -11,6 +12,7 @@ export default function HomePage(){
 
     return(
         <>
+          <Header/>
             <h1 className="text-3xl text-center mb-20 ">Tutti i giochi</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10">
                 {error && <p>{error}</p>}

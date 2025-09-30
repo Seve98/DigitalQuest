@@ -28,12 +28,12 @@ useEffect(() => {
 return(
     <>
        <details className="dropdown">
-           <summary className="m-1 btn">Genere</summary>
+           <summary className="list-none">Genere</summary>
            <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
                {error && <p>{error}</p>}
                {
                    genres && genres.results.map((genre)=>
-                   <li key={genre.id}>
+                   <li className="dropdown-item" key={genre.id}>
                 <Link to={`/games/${genre.slug}`}>{genre.name}</Link>
                     </li>)
                }

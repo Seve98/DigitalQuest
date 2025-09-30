@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import  Fetch  from "../../hook/useFetch";
+import supabase from "../../supabase/supabase-client";
+import ToggleFavorites from "./ToggleFavorites";
+import Chatbox from "../../components/Chatbox";
 export default function GameDetails() {
     const{id}=useParams();
   
     const initialUrl=`https://api.rawg.io/api/games/${id}?key=1c7734cdf2454917a6676784758c8c78`;
  const{data,loading,error,updateUrl}=Fetch(initialUrl)
+
     
     return (
         <>
@@ -21,7 +25,11 @@ export default function GameDetails() {
                 <img className="rounded-4xl" src={data&&data.background_image} alt="" />
             </div>
         </div>
-        
+    <ToggleFavorites data={data}/>
+
+    <div>
+        <Chatbox data={data&&data}/>
+    </div>
         </>
         
     )

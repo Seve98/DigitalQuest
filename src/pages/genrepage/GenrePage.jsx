@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import CardGame from "../../components/CardGame";
 import { useParams } from "react-router";
 import Fetch from "../../hook/useFetch";
@@ -9,6 +9,9 @@ export default function GenrePage() {
     const initialUrl=`https://api.rawg.io/api/games?key=1c7734cdf2454917a6676784758c8c78&genres=${genre}&page=1`;
 const{data,loading,error,updateUrl}=Fetch(initialUrl)
    
+useEffect(() => {
+    updateUrl(initialUrl);
+}, [initialUrl,updateUrl]);
     return (
         <>
         <h2 className="text-3xl text-center mb-20"> <strong>{genre.toUpperCase()}</strong> </h2>

@@ -1,10 +1,26 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SearchBar from "./SearchBar";
+import Register from "../pages/register/register";
+import SessionContext from "../context/SessionContext";
+import supabase from "../supabase/supabase-client";
+import { useContext } from "react";
+import GenresDropdown from "./GenresDropdown";
 
 
 export default function Navbar(){
+  const {session}=useContext(SessionContext);
+  const navigate=useNavigate();
+
+  const signOut=async()=>{
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log(error);
+    }
+    alert("Arrivederci 👍🏻!");
+    navigate("/");
+  }
     return(
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,28 +37,46 @@ export default function Navbar(){
            
           </ul>
         </li>
-        <li><a>Item 3</a></li>
+
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">DigitalQuest</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 text-xl">
      <li><Link to="/">Home </Link></li> 
       <li>
         <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-    
-            <li><a>Submenu 2</a></li>
-          </ul>
+          <summary><GenresDropdown/></summary>
+          
         </details>
       </li>
-      <li><a>Item 3</a></li>
+
     </ul>
   </div>
-  <div className="navbar-end">
-      <SearchBar/>
+  <div className="navbar-end hidden lg:flex">
+    <SearchBar/>  
+   {session ?(
+    <>
+    <ul>
+      <li>
+      <details className="dropdown">
+          <summary className="m-1 btn">Ciao {session.user.user_metadata.first_name}  </summary>
+          <ul className="absolute menu dropdown-content  rounded-box ">
+            <li><Link to="/profile">Profilo</Link></li>
+            <li><Link to="/account">Account</Link></li>
+            <li><a className="btn" onClick={signOut}>Logout</a></li>
+          </ul>
+      </details>
+      </li>
+    </ul>
+    </>
+   ):(
+    <ul className="menu menu-horizontal px-1">
+      <li><Link to="/register"> Registrati </Link></li>
+      <li><Link to="/login"> Accedi </Link></li>
+    </ul>
+   )}
   </div>
 </div>
     )

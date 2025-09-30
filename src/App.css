@@ -2,23 +2,39 @@
     --cp:#001011;
     --cs:#F1DAC4;
     --ca:#640D14;
-    --ft: 'Pixelify Sans' , sans-serif;
+    --ft: 'Pixelify Sans' , sans-serif; 
     --fp: 'Space Grotesk' , sans-serif;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: var(--ft);
     font-weight: bold;
 }
+
 html,body{
-    background-color: var(--cp);
+    
     color: var(--cs);
     font-family: var(--fp);}
+
+
+.navbar{
+    background-color: var(--cp);
+    font-family: var(--fp);
+    font-weight: bold;
+}
+
 .card{
-    background-color: var(--ca);
+    background-color: var(--cp);
     height: 25rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    box-shadow: 0px 0px 10px 0px var(--ca)
+    }
+    .card:hover{
+        box-shadow: 0px 15px 10px 0px var(--ca);
+        transform:translateY(-10px);
+        transition: all 0.2s ease-in-out;
     }
     .box-description{
-        
         border: 1px solid var(--cs);
         background-color: var(--ca);
         font-size: x-large;
@@ -28,8 +44,10 @@ html,body{
         background-color: var(--ca);
         color: var(--cs);
         border: 1px solid var(--cs);
+        border-radius: 50px;
         font-family: var(--fp);
         font-size: large;
+        
     }
     .searchbar{  
         color: var(--cs);
@@ -49,4 +67,54 @@ html,body{
         border-radius: 5rem;
         margin-right: 20px;
     }
+   .form{
+    border: 1px solid #640D14;
+    padding:2rem;
+    border-radius: 1rem;
+    background-color: var(--cp);
+    backdrop-filter: blur(10px);
+
+   }
+   .input{
+    background-color: var(--cs);
+    color: var(--cp);
+    border: none;
+    font-family: var(--fp);
+    font-size: large;
+    padding: 0.5rem;
+    border-radius: 5rem;
+    margin-right: 20px;
+    
+   }
+
+   .chatContainer{
+    margin-top: 5px;
+    padding:0 3px;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: space-between;
+   }
+ 
+  .background-video {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
    
+}
+.header
+{
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    font-family: var(--fp);
+    font-weight: bold;
+    text-shadow: 0px 10px 10px var(--ca);
+}
