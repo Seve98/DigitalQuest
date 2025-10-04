@@ -13,7 +13,7 @@ export default function LazyLoadGameImage({image}) {
                 }
             }}
              src={image}
-            className=" img-fluid"
+            className=" w-full h-full object-cover rounded-t-lg" 
         />
     );
 }

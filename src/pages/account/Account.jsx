@@ -66,18 +66,21 @@ export default function Account() {
     }
 
     return (
-        <div className="grid place-items-center">
+        <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 ">
+            <div className="max-w-md mx-auto rounded-2xl shadow-xl p-8 bg-transparent backdrop-blur-2xl">
             <h2 className="text-3xl mb-3 text-center">Impostazioni Profilo</h2>
-            <form onSubmit={updateProfile} className="form">
+            <form onSubmit={updateProfile}>
+                <div className="mb-3">
                 <Avatar url={avatar_url}
                 size={150}
                 onUpload={(event,url)=>{
                     updateProfile(event,url);
                 }} />
+                </div>
                 <div className="mb-3">
                     <label htmlFor="email">Email</label>
                     <input
-                    className="input"
+                    className="w-full px-4 py-3 bgp rounded-lg cursor-not-allowed"
                         id="email"
                         type="text"
                         value={session?.user.email}
@@ -87,7 +90,7 @@ export default function Account() {
                 <div className="mb-3">
                     <label htmlFor="username">Username</label>
                     <input
-                    className="input"
+                    className="w-full px-4 py-3 rounded-lg bgp "
                         id="username"
                         type="text"
                         value={username || ""}
@@ -97,7 +100,7 @@ export default function Account() {
                 <div className="mb-3">
                     <label htmlFor="first_name">Nome</label>
                     <input
-                    className="input"
+                    className="w-full px-4 py-3 rounded-lg bgp "
                         id="first_name"
                         type="text"
                         value={first_name || ""}
@@ -107,7 +110,7 @@ export default function Account() {
                 <div className="mb-3">
                     <label htmlFor="last_name">Cognome</label>
                     <input
-                    className="input"
+                    className="w-full px-4 py-3 rounded-lg bgp "
                         id="last_name"
                         type="text"
                         value={last_name || ""}
@@ -115,10 +118,11 @@ export default function Account() {
                     />
                 </div>
                 
-                <button type="submit" disabled={loading} className="btn btn-custom" >
+                <button type="submit" disabled={loading} className="w-full bga  py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer transform hover:-translate-y-0.5" >
                     {loading?"Sto aggiornando...":"Aggiorna"}
                 </button>
             </form>
+            </div>
         </div>
     );
 }

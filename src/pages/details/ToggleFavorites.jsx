@@ -9,8 +9,8 @@ export default function ToggleFavorites({data}){
     return (
     <div>
             {isFavorite()?(
-                <button className="btn btn-custom" onClick={()=>removeFavorite(data.id)}>Rimuovi dai preferiti</button> ):(
-                <button className="btn btn-custom" onClick={()=>addFavorites(data)}>Aggiungi ai preferiti</button>
+                <button className="btn btn-custom" onClick={()=>removeFavorite(data.id)}><i className="fa-solid fa-heart"></i> Rimuovi dai preferiti </button> ):(
+                <button className="btn btn-custom" onClick={()=>addFavorites(data)}><i className="fa-regular fa-heart"></i> Aggiungi ai preferiti</button>
             )}
     </div>
    )

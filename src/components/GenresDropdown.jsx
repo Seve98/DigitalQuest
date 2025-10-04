@@ -1,4 +1,4 @@
-import { use } from "react";
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 export default function GenresDropdown(){
@@ -27,18 +27,19 @@ useEffect(() => {
 }, []);
 return(
     <>
-       <details className="dropdown">
-           <summary className="list-none">Genere</summary>
-           <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
-               {error && <p>{error}</p>}
-               {
-                   genres && genres.results.map((genre)=>
-                   <li className="dropdown-item" key={genre.id}>
-                <Link to={`/games/${genre.slug}`}>{genre.name}</Link>
-                    </li>)
-               }
-           </ul>
-       </details>
+      <details className="dropdown-end lg:dropdown-start">
+  <summary className="list-none cursor-pointer">Categorie</summary>
+  <ul className="p-2 shadow  dropdown-content z-10 w-52 rounded-box bgp  max-h-60 overflow-y-scroll">
+    {error && <p>{error}</p>}
+    {genres &&
+      genres.results.map((genre) => (
+        <li className="dropdown-item" key={genre.id}>
+          <Link className="linkhover my-1"  onClick={() => {setOpen(false);}} to={`/games/${genre.slug}`}>{genre.name}</Link>
+        </li>
+      ))}
+  </ul>
+</details>
+
     </>
 )
 }

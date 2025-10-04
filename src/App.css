@@ -1,9 +1,29 @@
+
 :root{
-    --cp:#001011;
-    --cs:#F1DAC4;
-    --ca:#640D14;
+
+    --cp: #22181C; /* colore primario: blu scuro */
+    --cs: #F6E8EA ;/* colore secondario: bianco */
+    --ca: #EF626C; /* colore accento: grigio chiaro */
     --ft: 'Pixelify Sans' , sans-serif; 
     --fp: 'Space Grotesk' , sans-serif;
+}
+.bgp{
+    background-color: var(--cp);
+}
+.bgs{
+    background-color: var(--cs);
+}
+.bga{
+    background-color: var(--ca);
+}
+.cp{
+    color: var(--cp);
+}
+.cs{
+    color: var(--cs);
+}
+.ca{
+    color: var(--ca);
 }
 h1,h2,h3,h4,h5,h6{
     font-family: var(--ft);
@@ -13,49 +33,61 @@ h1,h2,h3,h4,h5,h6{
 html,body{
     
     color: var(--cs);
-    font-family: var(--fp);}
+    font-family: var(--fp);
 
+}
 
 .navbar{
     background-color: var(--cp);
     font-family: var(--fp);
     font-weight: bold;
+
 }
 
 .card{
     background-color: var(--cp);
-    height: 25rem;
     border-radius: 1rem;
     margin: 1rem;
-    box-shadow: 0px 0px 10px 0px var(--ca)
+
+   
+    max-width: 1200px;
     }
     .card:hover{
-        box-shadow: 0px 15px 10px 0px var(--ca);
-        transform:translateY(-10px);
-        transition: all 0.2s ease-in-out;
+        box-shadow: 0px 0px 20px 0px var(--ca);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
     }
     .box-description{
         border: 1px solid var(--cs);
         background-color: var(--ca);
         font-size: x-large;
-
+        overflow-y:scroll;
+        height: 40rem;
     }
     .btn-custom{
         background-color: var(--ca);
+        text-shadow: 0px 0px 5px var(--ca);
         color: var(--cs);
         border: 1px solid var(--cs);
-        border-radius: 50px;
+       border-radius: 10px;
         font-family: var(--fp);
         font-size: large;
         
     }
+    .btn-custom:hover{
+        background-color: var(--cs);
+        color: var(--ca);
+        box-shadow: 0px 0px 20px 0px var(--ca);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
     .searchbar{  
-        color: var(--cs);
-     
+        color: var(--cs); 
         font-family: var(--fp);
         font-size: large;
         padding: 0.5rem;
         border-radius: 5rem;
+        background-color: var(--cp);
     }
     .searchbar input[type="text"]{
         background-color: var(--cp);
@@ -67,54 +99,116 @@ html,body{
         border-radius: 5rem;
         margin-right: 20px;
     }
-   .form{
-    border: 1px solid #640D14;
-    padding:2rem;
-    border-radius: 1rem;
-    background-color: var(--cp);
-    backdrop-filter: blur(10px);
+   
 
-   }
-   .input{
-    background-color: var(--cs);
-    color: var(--cp);
-    border: none;
-    font-family: var(--fp);
-    font-size: large;
-    padding: 0.5rem;
-    border-radius: 5rem;
-    margin-right: 20px;
-    
-   }
-
-   .chatContainer{
-    margin-top: 5px;
-    padding:0 3px;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    justify-content: space-between;
-   }
+ 
  
   .background-video {
-
-    position: fixed;
     top: 0;
     left: 0;
+    position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
     object-fit: cover;
-    z-index: -1;
-    opacity: 0.5;
+    opacity: 0.3;
+    z-index: -10;
+ 
+  };
    
-}
+
 .header
 {
-    background-color: transparent;
-    backdrop-filter: blur(15px);
+   
+    backdrop-filter: blur(20px);
+    --webkit-backdrop-filter: blur(20px);
     font-family: var(--fp);
     font-weight: bold;
-    text-shadow: 0px 10px 10px var(--ca);
+    
+}
+h1,h2{
+    text-shadow: 0px 0px 5px var(--ca);
+}
+
+.icon-account{
+    border: 1px solid var(--cs);
+    border-radius: 100%;
+    padding: 15px;
+    background-color: var(--ca);
+}
+.dashdesc{
+    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.cardesc{
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.linkhover {
+  position: relative;
+  z-index: 0;
+  display: inline-block; /* utile se il link è un <a> */
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.linkhover {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+  z-index: 0;
+}
+
+.linkhover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: var(--ca);
+  transition: width 0.4s ease-in-out;
+  z-index: -1;
+}
+
+.linkhover:hover::before {
+  width: 100%;
+}
+
+.linkhover:hover {
+  color: var(--cs); /* opzionale: testo diventa bianco */
+  
+}
+
+@media screen and (max-width: 768px) {
+     .box-description{
+        font-size: large;
+        height: 20rem;
+    }
+    .searchbar{
+         
+        font-size: small;
+        padding: 0;
+    }
+    .searchbar input[type="text"]{
+        font-size: small;
+        padding: 0;
+    }
+    .input{
+     
+       width: 100%;
+    }
+     .form{
+    
+    width: 100%;
+
+   }
 }

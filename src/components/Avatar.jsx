@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import supabase from "../supabase/supabase-client";
 import { useState } from "react";
 
+
 export default function Avatar({url,size,onUpload}) {
 const [avatarUrl, setAvatarUrl] = useState(null);
 const[uploading, setUploading] = useState(false);
 
 useEffect(() => {
     if(url) {
-        setAvatarUrl(url);
+        downloadImage(url);
+      
     }
 }, [url]);
 
@@ -17,6 +19,8 @@ const downloadImage=async(path) =>{
         const {data,error}=await supabase.storage.from('avatars').download(path);
         if(error){
             throw error;
+            const url=URL.createObjectURL(data);
+            setAvatarUrl(url);
         }
         const url=URL.createObjectURL(data);
         setAvatarUrl(url);
@@ -35,10 +39,15 @@ const uploadAvatar=async(e)=>{
         const fileName=`${Math.random()}.${fileExt}`;
         const filePath=`${fileName}`;
 
-        const{error:uploadError}=await supabase.storage.from('avatars').upload(filePath,file);
+        const{error:uploadError}=await supabase.storage
+        .from('avatars')
+        .upload(filePath,file);
         if(uploadError){
             throw uploadError;
         }
+        await downloadImage(filePath);
+
+
         onUpload(e,filePath)
     }catch(error){
         alert(error.message);
@@ -47,13 +56,13 @@ const uploadAvatar=async(e)=>{
     }
 }
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center relative">
             {avatarUrl?(<img className="avatar image" src={avatarUrl} style={{height:size,width:size,borderRadius:"50%"}} />):(
                 <div className="avatar no-image" style={{height:size,width:size}} />
             )}
-            <div style={{width:size}}>
-                
-                <input id="single" className="btn" type="file" accept="image/*" onChange={uploadAvatar} disabled={uploading} />
+            <div className="mt-4">
+                <label htmlFor="single" className="btn btn-custom">Upload</label>
+                <input id="single" className="hidden" type="file" accept="image/*" onChange={uploadAvatar} disabled={uploading} />
             </div>
         </div>
     )

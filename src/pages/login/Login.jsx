@@ -2,6 +2,9 @@ import { useNavigate } from "react-router"
 import { useState } from "react"
 import supabase from "../../supabase/supabase-client"
 import { ConfirmSchema, getFieldError, getErrors,FormSchema, ConfirmSchemaLogin, FormSchemaLogin } from "../../lib/validationForm"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import{faUser} from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router"
 
 export default function Login() {
     const navigate=useNavigate();
@@ -54,40 +57,50 @@ export default function Login() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <h1 className="text-3xl font-bold mb-10">Login</h1>
-            <form onSubmit={onSubmit} className="flex flex-col items-center justify-center">
-                <div className="form-control w-full max-w-xs">
+        <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 ">
+         <div className="max-w-md mx-auto rounded-2xl shadow-xl p-8  bg-black/50 backdrop-blur-lg">
+            <div className="flex flex-col items-center my-5">
+                <FontAwesomeIcon icon={faUser} size="3x" className="mb-5 icon-account" />
+            <h1 className="text-4xl text-center font-bold mb-5">Bentornato</h1>
+            <p className="text-center">Accedi al tuo account</p>
+            </div>
+            <form onSubmit={onSubmit} >
+                <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
                     <input
                         type="email"
                         placeholder="email"
-                        className="input input-bordered w-full max-w-xs"
+                        className="w-full px-4 py-3 rounded-lg bgp"
                         value={formState.email}
                         onChange={setField("email")}
                         onBlur={onBlur("email")}
                     />
                 </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
+                <div className="form-control ">
+                    <label className="label mt-5">
                         <span className="label-text">Password</span>
                     </label>
                     <input
                         type="password"
                         placeholder="password"
-                        className="input input-bordered w-full max-w-xs"
+                        className="w-full px-4 py-3 rounded-lg bgp"
                         value={formState.password}
                         onChange={setField("password")}
                         onBlur={onBlur("password")}
                     />
                 </div>
-                <button type="submit" className="btn btn-custom mt-5">
+                <button type="submit" className="w-full bga mt-10 py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer transform hover:-translate-y-0.5">
                     Login
                 </button>
+                <hr className="my-10"/>
+                <div className="">
+                    <p className="text-center">Non hai un account? <Link to="/register" className="font-bold ca">Registrati</Link></p>
+
+                </div>
             </form>
-           
+           </div>
         </div>
     )
 }

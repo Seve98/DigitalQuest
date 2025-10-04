@@ -14,8 +14,8 @@ useEffect(() => {
 }, [initialUrl,updateUrl]);
     return (
         <>
-        <h2 className="text-3xl text-center mb-20"> <strong>{genre.toUpperCase()}</strong> </h2>
-        <div className="grid grid-cols-3 gap-20 justify-items-center">
+        <h2 data-aos="fade-up" className="text-7xl text-center my-20 "> <strong>{genre.toUpperCase()}</strong> </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-20 justify-items-center">
             {error && <p>{error}</p>}
             {
                 data && data.results.map((game)=><CardGame key={game.id} game={game}/>)

@@ -3,6 +3,9 @@ import { ConfirmSchema, getFieldError, getErrors } from "../../lib/validationFor
 import { useState } from "react";
 import supabase from "../../supabase/supabase-client";
 import { useNavigate } from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import{faUser} from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 
 export default function Register(){
@@ -66,42 +69,57 @@ export default function Register(){
       };
     return(
         <>
-                <div className="grid grid-cols-1 justify-items-center">
-                    <form className="form" onSubmit={onSubmit}>
-                    <h1 className="text-3xl text-center mb-20">Registrati</h1>
+                 <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 ">
+                    <div className="max-w-md mx-auto rounded-2xl shadow-xl p-8 bg-black/50 backdrop-blur-lg">
+                    
+                     <div className="flex flex-col items-center my-5">
+                       <FontAwesomeIcon icon={faUser} size="3x" className="mb-5 icon-account" />
+                       <h1 className="text-4xl text-center font-bold ">Benvenuto</h1>
+                       <p className="text-center text-2xl mt-2">Crea il tuo account</p>
+                    </div>
+                    <form onSubmit={onSubmit}>
+                    
+
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email address</label>
-                            <input type="email" className="form-control input" id="email" value={formState.email} onChange={setField("email")} onBlur={onBlur("email")} aria-describedby="email" />
-                            {isInvalid("email") && <p className="text-red-500">{formErrors.email}</p>}
-                        </div>  
+                            <label htmlFor="email" className="form-label">Email</label>
+                            <input type="email" className="w-full px-4 py-3 rounded-lg bgp" id="email" value={formState.email} onChange={setField("email")} onBlur={onBlur("email")} />
+                           <label htmlFor="error"> {isInvalid("email") && <p className="text-red-500">{formErrors.email}</p>}</label>
+                        </div>
+                        
                         
                         <div className="mb-3">
-                            <label htmlFor="firstName" className="form-label">First Name</label>
-                            <input type="text" className="form-control input" id="firstName" value={formState.firstName} onChange={setField("firstName")} onBlur={onBlur("firstName")} />
+                            <label htmlFor="firstName" className="form-label">Nome</label>
+                            <input type="text" className="w-full px-4 py-3 rounded-lg bgp" id="firstName" value={formState.firstName} onChange={setField("firstName")} onBlur={onBlur("firstName")} />
                             {isInvalid("firstName") && <p className="text-red-500">{formErrors.firstName}</p>}
                         </div>
                     
                         <div className="mb-3">
-                            <label htmlFor="lastName" className="form-label ">Last Name</label>
-                            <input type="text" className="form-control input" id="lastName" value={formState.lastName} onChange={setField("lastName")} onBlur={onBlur("lastName")} />
+                            <label htmlFor="lastName" className="form-label">Cognome</label>
+                            <input type="text" className="w-full px-4 py-3 rounded-lg bgp" id="lastName" value={formState.lastName} onChange={setField("lastName")} onBlur={onBlur("lastName")} />
                             {isInvalid("lastName") && <p className="text-red-500">{formErrors.lastName}</p>}
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="username" className="form-label">Username</label>
-                            <input type="text" className="form-control input" id="username" value={formState.username} onChange={setField("username")} onBlur={onBlur("username")} />
+                            <input type="text" className="w-full px-4 py-3 rounded-lg bgp" id="username" value={formState.username} onChange={setField("username")} onBlur={onBlur("username")} />
                             {isInvalid("username") && <p className="text-red-500">{formErrors.username}</p>}
                         </div>
                        
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label">Password</label>
-                            <input type="password" className="form-control input" id="password" value={formState.password} onChange={setField("password")} onBlur={onBlur("password")} />
+                            <input type="password" className="w-full px-4 py-3 rounded-lg bgp" id="password" value={formState.password} onChange={setField("password")} onBlur={onBlur("password")} />
                             {isInvalid("password") && <p className="text-red-500">{formErrors.password}</p>}
                         </div>
                         
-                        <button type="submit" className="btn btn-primary">Registrati</button>
-                    </form>
+                        <button type="submit" className="w-full bga mt-5  py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer transform hover:-translate-y-0.5">Registrati</button>
+                    
+                    <hr className="my-4 cs" />
 
+                    <p className="text-center">Hai già un account? <Link to="/login" className="ca">Accedi</Link></p>
+                    
+                    </form>
+                  
+                  </div>
                 </div>
         </>
     )

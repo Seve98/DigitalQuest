@@ -27,6 +27,8 @@ const getFavorites=useCallback(async()=>{
           game_id: game.id,
           game_name: game.name,
           game_image: game.background_image,
+          game_description: game.description,
+          
         },
       ])
       .select();

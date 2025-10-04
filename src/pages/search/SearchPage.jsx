@@ -15,7 +15,7 @@ export default function SearchPage() {
 
     return (
         <div>
-            <h1 className="text-3xl text-center mb-20">Risultati per: {game.toUpperCase()}</h1>
+            <h1 className="text-7xl text-center my-20">Risultati per: {game.toUpperCase()}</h1>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-20 ">

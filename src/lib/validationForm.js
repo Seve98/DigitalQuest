@@ -1,12 +1,12 @@
 import z from "zod";
 const passwordRegex=/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$/;
-const passwordError= "Password must be at least 8 characters long and contain at least one letter and one number.";
+const passwordError= "La password deve essere lunga almeno 8 caratteri e deve contenere almeno una lettera maiuscola, una minuscola e un numero";
 
 export const FormSchema=z.object({
-    email:z.string().email(),
-    firstName:z.string().min(1),
-    lastName:z.string().min(1),
-    username:z.string().min(1),
+    email:z.string().email('Email non valida'),
+    firstName:z.string().min(1,"Il nome deve contenere almeno 1 carattere"),
+    lastName:z.string().min(1,"Il cognome deve contenere almeno 1 carattere"),
+    username:z.string().min(1,"Lo username deve contenere almeno 1 carattere"),
     password:z.string().min(8).regex(passwordRegex,passwordError),  
 });
 

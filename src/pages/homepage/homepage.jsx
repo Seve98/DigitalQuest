@@ -12,12 +12,12 @@ export default function HomePage(){
 
     return(
         <>
-          <Header/>
-            <h1 className="text-3xl text-center mb-20 ">Tutti i giochi</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10">
+          <Header />
+            <h1 data-aos="fade-up" className="text-5xl lg:text-7xl text-center mb-20 ">Tutti i giochi</h1>
+            <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  justify-items-center gap-10">
                 {error && <p>{error}</p>}
                 {
-                    data && data.results.map((game)=><CardGame key={game.id} game={game}/>)
+                    data && data.results.map((game)=><CardGame  key={game.id} game={game}/>)
                 }
             </div>
         </>
