@@ -36,7 +36,7 @@ export default function SearchBar() {
                     onChange={(e) => setSearch(e.target.value)}
                     aria-invalid={ariaInvalid}
                 />
-                <input className="" type="submit" value="Cerca" />
+                <input type="submit" value="Cerca" />
                 </fieldset>
             </form>
        )}    

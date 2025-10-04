@@ -55,7 +55,7 @@ export default function Navbar() {
               <GenresDropdown />
             </li>
             <li>
-              <SearchBar />
+              <SearchBar  />
             </li>
             
           </ul>
