@@ -4,16 +4,15 @@ import { createBrowserRouter } from "react-router"
 
 
 
-import HomePage from "../pages/homepage/HomePage"
-import Layout from "../layout/Layout"
-import GenrePage from "../pages/genrepage/GenrePage"
-import GameDetails from "../pages/details/GameDetails"
-import SearchPage from "../pages/search/SearchPage"
-import Register from "../pages/register/register"
-import Login from "../pages/login/Login"
-import Account from "../pages/account/Account"
-import Profile from "../pages/profile/Profile"
-
+import Layout from "../layout/Layout.jsx"
+import GenrePage from "../pages/genrepage/GenrePage.jsx"
+import GameDetails from "../pages/details/GameDetails.jsx"
+import SearchPage from "../pages/search/SearchPage.jsx"
+import Register from "../pages/register/Register.jsx"
+import Login from "../pages/login/Login.jsx"
+import Account from "../pages/account/Account.jsx"
+import Profile from "../pages/profile/Profile.jsx"
+import HomePage from "../pages/homepage/HomePage.jsx"
 
 
 
