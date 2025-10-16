@@ -28,6 +28,7 @@ export default function Register(){
     if (error) {
       const errors = getErrors(error);
       setFormErrors(errors);
+
     } else {
       let { error } = await supabase.auth.signUp ({
         email: data.email,
@@ -41,7 +42,11 @@ export default function Register(){
         }
       });
       if (error) {
-        toast.error("Signing up error 👎🏻!");
+        if(error.message.includes("already registered")){
+          toast.error("Utente gia registrato");}
+          else{
+          toast.error("Errore nella registrazione");
+        }
       } else {
         toast.success("Signed up 👍🏻!");
         await new Promise((resolve) => setTimeout(resolve, 1000));
