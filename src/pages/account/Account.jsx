@@ -4,6 +4,7 @@ import supabase  from "../../supabase/supabase-client";
 import { useContext, useEffect, useState } from "react";
 import SessionContext from "../../context/SessionContext";
 import Avatar from "../../components/Avatar";
+import toast from "react-hot-toast";
 
 
 export default function Account() {
@@ -60,7 +61,7 @@ export default function Account() {
         };
       const {error}=await supabase.from('profiles').upsert(updates);
       if(error){
-        alert(error.message);
+        toast.error(error.message);
       }
       setLoading(false);
     }

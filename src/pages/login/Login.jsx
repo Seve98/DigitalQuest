@@ -5,6 +5,7 @@ import { ConfirmSchema, getFieldError, getErrors,FormSchema, ConfirmSchemaLogin,
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import{faUser} from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router"
+import toast from "react-hot-toast"
 
 export default function Login() {
     const navigate=useNavigate();
@@ -30,9 +31,9 @@ export default function Login() {
                 password: data.password,
             });
             if (error) {
-                alert("Signing up error 👎🏻!");
+              toast.error("Errore nell'autenticazione");
             } else {
-                alert("Signed up 👍🏻!");
+                toast.success("Acceso effettuato!");
                 await new Promise((resolve) => setTimeout(resolve, 1000));
                 navigate("/");
             }

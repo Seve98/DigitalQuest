@@ -7,6 +7,7 @@ import SearchBar from "./SearchBar";
 import GenresDropdown from "./GenresDropdown";
 import SessionContext from "../context/SessionContext";
 import supabase from "../supabase/supabase-client";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const { session } = useContext(SessionContext);
@@ -18,7 +19,7 @@ export default function Navbar() {
       console.error(error);
       return;
     }
-    alert("Arrivederci 👍🏻!");
+    toast.success("Arrivederci!");
     navigate("/");
   };
 

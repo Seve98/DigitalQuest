@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import supabase from "../supabase/supabase-client";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 
 export default function Avatar({url,size,onUpload}) {
@@ -50,7 +51,7 @@ const uploadAvatar=async(e)=>{
 
         onUpload(e,filePath)
     }catch(error){
-        alert(error.message);
+        toast.error(error.message);
     }finally{
         setUploading(false);
     }
