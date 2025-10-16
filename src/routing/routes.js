@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 
 import Layout from "../layout/Layout";
-import HomePage from "../pages/homepage/HomePage.jsx";
+import HomePage from "../pages/homepage/homepage.jsx";
 import GenrePage from "../pages/genrepage/GenrePage";
 import GameDetails from "../pages/details/GameDetails";
 import SearchPage from "../pages/search/SearchPage";
