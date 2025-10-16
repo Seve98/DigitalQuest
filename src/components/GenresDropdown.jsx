@@ -56,7 +56,7 @@ export default function GenresDropdown() {
                 onClick={handleLinkClick}
                 to={`/games/${genre.slug}`}
               >
-                {genre.name}
+                {genre.name} 
               </Link>
             </li>
           ))}
