@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import{faUser} from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 export default function Register(){
@@ -27,7 +28,6 @@ export default function Register(){
     if (error) {
       const errors = getErrors(error);
       setFormErrors(errors);
-      console.log(errors);
     } else {
       let { error } = await supabase.auth.signUp ({
         email: data.email,
@@ -41,9 +41,9 @@ export default function Register(){
         }
       });
       if (error) {
-        alert("Signing up error 👎🏻!");
+        toast.error("Signing up error 👎🏻!");
       } else {
-        alert("Signed up 👍🏻!");
+        toast.success("Signed up 👍🏻!");
         await new Promise((resolve) => setTimeout(resolve, 1000));
         navigate("/");
       }
